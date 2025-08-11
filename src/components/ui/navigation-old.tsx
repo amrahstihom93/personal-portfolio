@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useScroll, useMotionValueEvent } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { Home, User, Code, Briefcase, Mail, Zap } from 'lucide-react';
 
@@ -10,7 +11,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home'); // Ensure it starts with 'home'
-  // Removed unused hidden variable
+  const [hidden, setHidden] = useState(false); // Added missing hidden state
   const { scrollY, scrollYProgress } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -1073,3 +1074,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

@@ -2,13 +2,25 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Play, Filter, X } from 'lucide-react';
+import { ExternalLink, Github, Play, X } from 'lucide-react';
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
   const controls = useAnimation();
-  const [selectedProject, setSelectedProject] = useState<unknown>(null);
+  type Project = {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    longDescription: string;
+    image: string;
+    technologies: string[];
+    liveUrl: string;
+    githubUrl: string;
+    featured: boolean;
+  };
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState('All');
 
   const { scrollYProgress } = useScroll({
@@ -27,74 +39,74 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: 'AI-Powered Dashboard',
-      category: 'Web App',
-      description: 'A modern analytics dashboard with AI-driven insights and real-time data visualization.',
-      longDescription: 'This comprehensive dashboard leverages machine learning algorithms to provide actionable insights from complex datasets. Built with Next.js, TypeScript, and integrated with various AI APIs for predictive analytics.',
-      image: '/api/placeholder/600/400',
-      technologies: ['Next.js', 'TypeScript', 'AI/ML', 'Chart.js', 'PostgreSQL'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "AI-Powered Dashboard",
+      category: "Web App",
+      description: "A modern analytics dashboard with AI-driven insights and real-time data visualization.",
+      longDescription: "This comprehensive dashboard leverages machine learning algorithms to provide actionable insights from complex datasets. Built with Next.js, TypeScript, and integrated with various AI APIs for predictive analytics.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Next.js", "TypeScript", "AI/ML", "Chart.js", "PostgreSQL"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: true,
     },
     {
       id: 2,
-      title: '3D Portfolio Website',
-      category: 'Web Design',
-      description: 'An immersive 3D portfolio experience built with Three.js and modern web technologies.',
-      longDescription: 'Interactive 3D portfolio showcasing creative work through stunning visual experiences. Features particle systems, 3D models, and smooth animations powered by Three.js and GSAP.',
-      image: '/api/placeholder/600/400',
-      technologies: ['Three.js', 'React', 'GSAP', 'Blender', 'WebGL'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "3D Portfolio Website",
+      category: "Web Design",
+      description: "An immersive 3D portfolio experience built with Three.js and modern web technologies.",
+      longDescription: "Interactive 3D portfolio showcasing creative work through stunning visual experiences. Features particle systems, 3D models, and smooth animations powered by Three.js and GSAP.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Three.js", "React", "GSAP", "Blender", "WebGL"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: true,
     },
     {
       id: 3,
-      title: 'E-Commerce Platform',
-      category: 'Full Stack',
-      description: 'Complete e-commerce solution with payment integration and admin dashboard.',
-      longDescription: 'Full-featured e-commerce platform with user authentication, payment processing, inventory management, and comprehensive admin dashboard. Built for scalability and performance.',
-      image: '/api/placeholder/600/400',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Docker'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "E-Commerce Platform",
+      category: "Full Stack",
+      description: "Complete e-commerce solution with payment integration and admin dashboard.",
+      longDescription: "Full-featured e-commerce platform with user authentication, payment processing, inventory management, and comprehensive admin dashboard. Built for scalability and performance.",
+      image: "/api/placeholder/600/400",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Docker"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: false,
     },
     {
       id: 4,
-      title: 'Mobile Fitness App',
-      category: 'Mobile',
-      description: 'Cross-platform fitness tracking app with social features and workout plans.',
-      longDescription: 'Comprehensive fitness application with workout tracking, social features, and personalized training plans. Includes real-time stats, progress visualization, and community challenges.',
-      image: '/api/placeholder/600/400',
-      technologies: ['React Native', 'Firebase', 'Node.js', 'MongoDB', 'Socket.io'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "Mobile Fitness App",
+      category: "Mobile",
+      description: "Cross-platform fitness tracking app with social features and workout plans.",
+      longDescription: "Comprehensive fitness application with workout tracking, social features, and personalized training plans. Includes real-time stats, progress visualization, and community challenges.",
+      image: "/api/placeholder/600/400",
+      technologies: ["React Native", "Firebase", "Node.js", "MongoDB", "Socket.io"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: false,
     },
     {
       id: 5,
-      title: 'Brand Identity System',
-      category: 'Design',
-      description: 'Complete brand identity and design system for a tech startup.',
-      longDescription: 'Comprehensive brand identity including logo design, color palette, typography, and complete design system. Created brand guidelines and marketing materials for consistent brand presence.',
-      image: '/api/placeholder/600/400',
-      technologies: ['Figma', 'Adobe CS', 'Sketch', 'Principle', 'InVision'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "Brand Identity System",
+      category: "Design",
+      description: "Complete brand identity and design system for a tech startup.",
+      longDescription: "Comprehensive brand identity including logo design, color palette, typography, and complete design system. Created brand guidelines and marketing materials for consistent brand presence.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Figma", "Adobe CS", "Sketch", "Principle", "InVision"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: true,
     },
     {
       id: 6,
-      title: 'Real-time Chat App',
-      category: 'Web App',
-      description: 'Real-time messaging platform with video calls and file sharing.',
-      longDescription: 'Modern chat application with real-time messaging, video calls, file sharing, and group management. Features end-to-end encryption and cross-platform compatibility.',
-      image: '/api/placeholder/600/400',
-      technologies: ['React', 'Socket.io', 'WebRTC', 'Node.js', 'Redis'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: "Real-time Chat App",
+      category: "Web App",
+      description: "Real-time messaging platform with video calls and file sharing.",
+      longDescription: "Modern chat application with real-time messaging, video calls, file sharing, and group management. Features end-to-end encryption and cross-platform compatibility.",
+      image: "/api/placeholder/600/400",
+      technologies: ["React", "Socket.io", "WebRTC", "Node.js", "Redis"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com",
       featured: false,
     },
   ];
@@ -121,7 +133,6 @@ const ProjectsSection = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };

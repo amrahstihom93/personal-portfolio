@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 
 const ContactSection = () => {
@@ -34,7 +34,7 @@ const ContactSection = () => {
   setFormData({ name: "", email: "", subject: "", message: "" });
     
     // You can integrate with your preferred form service here
-    alert('Message sent successfully!');
+  alert('Message sent successfully!'); // No apostrophe in this string, so no change needed
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,8 +47,8 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'hello@yourname.com',
+  label: "Email",
+  value: "hello@yourname.com",
       href: 'mailto:hello@yourname.com',
     },
     {
@@ -88,7 +88,6 @@ const ContactSection = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };

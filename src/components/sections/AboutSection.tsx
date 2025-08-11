@@ -38,16 +38,16 @@ const AboutSection = () => {
     }
   }, [isInView, controls]);
 
-  // Professional skills categorized like Omkar's site
+  // Professional skills categorized like Omkar&apos;s site
   const coreSkills = [
-    { name: 'HTML', level: 95 },
-    { name: 'CSS', level: 92 },
-    { name: 'JavaScript', level: 90 }
+  { name: "HTML", level: 95 },
+  { name: "CSS", level: 92 },
+  { name: "JavaScript", level: 90 }
   ];
 
   const frameworks = [
-    { name: 'React', level: 88 },
-    { name: 'Next.js', level: 85 },
+  { name: "React", level: 88 },
+  { name: "Next.js", level: 85 },
     { name: 'TypeScript', level: 82 },
     { name: 'Node.js', level: 80 },
     { name: 'GSAP', level: 75 }

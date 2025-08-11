@@ -66,10 +66,9 @@ export default function Navigation() {
     const handleResize = () => {
       updateDropPosition(activeSection);
     };
-    
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [activeSection]);
+  }, [activeSection, updateDropPosition]);
 
   // Initial position setup
   useEffect(() => {
