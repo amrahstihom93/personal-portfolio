@@ -117,13 +117,13 @@ const ContactSection = () => {
             variants={itemVariants}
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6"
           >
-            Let's <span className="text-gradient">Connect</span>
+            Let&apos;s <span className="text-gradient">Connect</span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4"
           >
-            Ready to bring your ideas to life? Let's discuss your next project
+            Ready to bring your ideas to life? Let&apos;s discuss your next project
           </motion.p>
         </motion.div>
 
@@ -136,8 +136,8 @@ const ContactSection = () => {
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Get in Touch</h3>
               <p className="text-base md:text-lg text-gray-300 leading-relaxed mb-6 md:mb-8">
-                I'm always open to discussing new opportunities, creative projects, 
-                or potential collaborations. Drop me a line and let's create something amazing together!
+                I&apos;m always open to discussing new opportunities, creative projects, 
+                or potential collaborations. Drop me a line and let&apos;s create something amazing together!
               </p>
             </div>
 
@@ -257,7 +257,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
-                  placeholder="What's this about?"
+                  placeholder="What&apos;s this about?"
                 />
               </div>
 
