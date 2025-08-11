@@ -11,9 +11,9 @@ const AboutSection = () => {
   // Typing effect state
   const [displayedText, setDisplayedText] = useState('');
   const [showTyping, setShowTyping] = useState(false);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  // Removed unused currentWordIndex and setCurrentWordIndex
 
-  const bioText = "I'm a passionate full-stack developer with a strong foundation in web development. With 5+ years of experience, I'm skilled in languages like JavaScript, TypeScript, and modern frameworks. I'm enthusiastic about staying informed on the latest trends while eagerly embracing new technologies.";
+  const bioText = "I&apos;m a passionate full-stack developer with a strong foundation in web development. With 5+ years of experience, I&apos;m skilled in languages like JavaScript, TypeScript, and modern frameworks. I&apos;m enthusiastic about staying informed on the latest trends while eagerly embracing new technologies.";
 
   // Typing effect
   useEffect(() => {

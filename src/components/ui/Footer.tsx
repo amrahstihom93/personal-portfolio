@@ -24,18 +24,18 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
   ];
 
   const services = [
-    'Web Development',
-    'Mobile Apps',
-    'UI/UX Design',
-    'Consulting',
+  "Web Development",
+  "Mobile Apps",
+  "UI/UX Design",
+  "Consulting",
   ];
 
   const scrollToTop = () => {
@@ -101,7 +101,7 @@ const Footer = () => {
                 </h3>
                 <p className="text-sm md:text-base text-gray-400 leading-relaxed">
                   Crafting digital experiences with passion and precision. 
-                  Let's build something amazing together.
+                  Let&apos;s build something amazing together.
                 </p>
               </div>
               

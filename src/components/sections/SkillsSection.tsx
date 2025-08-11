@@ -7,8 +7,8 @@ import {
   Palette, 
   Database, 
   Smartphone, 
-  Globe, 
-  Zap,
+  // Globe, 
+  // Zap,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';

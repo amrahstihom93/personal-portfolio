@@ -7,7 +7,7 @@ import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircle } f
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
-  const controls = useAnimation();
+  // Removed unused controls variable
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,7 +31,7 @@ const ContactSection = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+  setFormData({ name: "", email: "", subject: "", message: "" });
     
     // You can integrate with your preferred form service here
     alert('Message sent successfully!');

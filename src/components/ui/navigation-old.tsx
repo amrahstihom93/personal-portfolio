@@ -1,3 +1,5 @@
+import { X, Menu, ArrowUp } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,7 +10,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home'); // Ensure it starts with 'home'
-  const [hidden, setHidden] = useState(false);
+  // Removed unused hidden variable
   const { scrollY, scrollYProgress } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
