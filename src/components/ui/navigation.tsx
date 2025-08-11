@@ -58,8 +58,6 @@ export default function Navigation() {
 
   // Update drop position when activeSection changes
   useEffect(() => {
-    // ...existing code...
-  }, [activeSection]);
     updateDropPosition(activeSection);
   }, [activeSection]);
 
