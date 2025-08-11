@@ -123,7 +123,7 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
           >
-            I'm a passionate<br />
+            I&apos;m a passionate<br />
             <span className="italic font-light text-white/70">full-stack developer</span>
           </motion.h1>
 
@@ -238,7 +238,7 @@ const AboutSection = () => {
             transition={{ duration: 0.2 }}
           >
             <span className="text-base font-light tracking-wide mr-3">
-              Let's work together
+              I&apos;d love to collaborate
             </span>
             <motion.div
               className="w-8 h-px bg-white group-hover:w-12 transition-all duration-300"
