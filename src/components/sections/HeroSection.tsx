@@ -169,70 +169,8 @@ const HeroSection = () => {
                 transition={{ duration: 0.3 }}
               />
             </motion.span>
-            <div className="block relative">
-              {"f u l l s t a c k".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  className="inline-block relative"
-                  whileHover={{ 
-                    y: -8,
-                    color: "#6366f1",
-                    textShadow: "0 8px 25px rgba(99, 102, 241, 0.3)",
-                    scale: 1.05
-                  }}
-                  animate={{
-                    y: [0, -2, 0],
-                  }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: index * 0.03,
-                    ease: "easeOut",
-                    repeat: Infinity,
-                    repeatDelay: 3 + index * 0.1,
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                  {/* Individual character glow */}
-                  <motion.div
-                    className="absolute inset-0 bg-blue-400 opacity-0 blur-sm -z-10"
-                    whileHover={{ opacity: 0.2 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </motion.span>
-              ))}
-            </div>
-            <div className="block relative">
-              {"d e v e l o p e r".split("").map((char, index) => (
-                <motion.span
-                  key={index + 100}
-                  className="inline-block relative"
-                  whileHover={{ 
-                    y: -8,
-                    color: "#10b981",
-                    textShadow: "0 8px 25px rgba(16, 185, 129, 0.3)",
-                    scale: 1.05
-                  }}
-                  animate={{
-                    y: [0, -1, 0],
-                  }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: index * 0.03,
-                    ease: "easeOut",
-                    repeat: Infinity,
-                    repeatDelay: 4 + index * 0.08,
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                  {/* Individual character glow */}
-                  <motion.div
-                    className="absolute inset-0 bg-emerald-400 opacity-0 blur-sm -z-10"
-                    whileHover={{ opacity: 0.2 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </motion.span>
-              ))}
-            </div>
+            {/* Typing effect for multiple titles */}
+            <TypingTitles />
           </motion.h1>
         </motion.div>
 
@@ -1052,6 +990,49 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
     </motion.section>
+  );
+};
+
+/**
+ * Simple typing effect for multiple titles.
+ */
+const titles = [
+  "Full Stack Developer",
+  "UI/UX Enthusiast",
+  "Cloud Architect",
+  "Mobile App Creator"
+];
+
+const TypingTitles: React.FC = () => {
+  const [currentTitle, setCurrentTitle] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let typingTimeout: NodeJS.Timeout;
+    const fullText = titles[currentTitle];
+    if (!isDeleting && displayedText.length < fullText.length) {
+      typingTimeout = setTimeout(() => {
+        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+      }, 80);
+    } else if (isDeleting && displayedText.length > 0) {
+      typingTimeout = setTimeout(() => {
+        setDisplayedText(fullText.substring(0, displayedText.length - 1));
+      }, 40);
+    } else if (!isDeleting && displayedText.length === fullText.length) {
+      typingTimeout = setTimeout(() => setIsDeleting(true), 1200);
+    } else if (isDeleting && displayedText.length === 0) {
+      setIsDeleting(false);
+      setCurrentTitle((prev) => (prev + 1) % titles.length);
+    }
+    return () => clearTimeout(typingTimeout);
+  }, [displayedText, isDeleting, currentTitle]);
+
+  return (
+    <span className="ml-3 font-semibold text-blue-500">
+      {displayedText}
+      <span className="animate-blink">|</span>
+    </span>
   );
 };
 
